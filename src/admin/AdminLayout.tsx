@@ -23,13 +23,13 @@ export default function AdminLayout() {
   }
 
   return (
-    <>
+    <div className="bg-gray-900 min-h-screen">
       <Titulo />
       <MenuLateral />
-      <div className="p-4 sm:ml-64">
+      <div className="p-4 sm:ml-64 bg-gray-900 min-h-screen">
         <Outlet />
       </div>
       <Toaster richColors position="top-right" />
-    </>
+    </div>
   )
 }

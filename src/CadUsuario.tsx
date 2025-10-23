@@ -45,48 +45,75 @@ export default function CadUsuario() {
     }
 
     return (
-        <section className="bg-gray-50 dark:bg-gray-900">
-            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Cadastro de Cliente
-                        </h1>
-                        <form className="space-y-4 md:space-y-6" 
-                          onSubmit={handleSubmit(cadastraUsuario)}>
-                            <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome:</label>
-                                <input type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Seu nome completo" required 
-                                    {...register("nome")} />
-                            </div>
-                            <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail:</label>
-                                <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="nome@gmail.com" required 
-                                    {...register("email")} />
-                            </div>
-                            <div>
-                                <label htmlFor="cidade" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cidade:</label>
-                                <input type="text" id="cidade" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sua cidade" required 
-                                    {...register("cidade")} />
-                            </div>
-                            <div>
-                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha de Acesso:</label>
-                                <input type="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required 
-                                      {...register("senha")} />
-                            </div>
-                            <div>
-                                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme a Senha:</label>
-                                <input type="password" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required 
-                                      {...register("senha2")} />
-                            </div>
-                            <button type="submit" className="w-full text-white bg-amber-600 hover:bg-amber-700 focus:ring-4 focus:outline-none focus:ring-amber-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-amber-400 dark:hover:bg-amber-500 dark:focus:ring-amber-800">Criar sua Conta</button>
-                            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Já possui uma conta? <Link to="/login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Faça Login</Link>
-                            </p>
-                        </form>
+        <div className="sebo-auth-container">
+            <div className="sebo-auth-card">
+                <h1 className="sebo-auth-title">
+                    Cadastro de Cliente
+                </h1>
+                <form className="sebo-auth-form" onSubmit={handleSubmit(cadastraUsuario)}>
+                    <div className="sebo-auth-field">
+                        <label htmlFor="nome" className="sebo-auth-label">Nome:</label>
+                        <input 
+                            type="text" 
+                            id="nome" 
+                            className="sebo-auth-input"
+                            placeholder="Seu nome completo" 
+                            required 
+                            {...register("nome")} 
+                        />
                     </div>
-                </div>
+                    <div className="sebo-auth-field">
+                        <label htmlFor="email" className="sebo-auth-label">E-mail:</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            className="sebo-auth-input"
+                            placeholder="nome@gmail.com" 
+                            required 
+                            {...register("email")} 
+                        />
+                    </div>
+                    <div className="sebo-auth-field">
+                        <label htmlFor="cidade" className="sebo-auth-label">Cidade:</label>
+                        <input 
+                            type="text" 
+                            id="cidade" 
+                            className="sebo-auth-input"
+                            placeholder="Sua cidade" 
+                            required 
+                            {...register("cidade")} 
+                        />
+                    </div>
+                    <div className="sebo-auth-field">
+                        <label htmlFor="password" className="sebo-auth-label">Senha de Acesso:</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            className="sebo-auth-input"
+                            placeholder="••••••••" 
+                            required 
+                            {...register("senha")} 
+                        />
+                    </div>
+                    <div className="sebo-auth-field">
+                        <label htmlFor="confirm-password" className="sebo-auth-label">Confirme a Senha:</label>
+                        <input 
+                            type="password" 
+                            id="confirm-password" 
+                            className="sebo-auth-input"
+                            placeholder="••••••••" 
+                            required 
+                            {...register("senha2")} 
+                        />
+                    </div>
+                    <button type="submit" className="sebo-auth-button">
+                        Criar sua Conta
+                    </button>
+                    <div className="sebo-auth-footer">
+                        Já possui uma conta? <Link to="/login" className="sebo-auth-link">Faça Login</Link>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
     )
 }

@@ -133,6 +133,8 @@ body {
   flex: 1;
   padding: 0.25rem;
   font-size: 0.875rem;
+  color: #1f2937;
+  background: transparent;
 }
 
 .sebo-search svg {
@@ -218,12 +220,24 @@ body {
   gap: 1.5rem;
 }
 
+.sebo-book-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.sebo-book-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .sebo-book-card {
   background: #374151;
   border-radius: 0.5rem;
   overflow: hidden;
   transition: transform 0.2s;
   position: relative;
+  cursor: pointer;
 }
 
 .sebo-book-card:hover {
@@ -274,6 +288,448 @@ body {
 
 .sebo-book-card:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Detalhes Styles */
+.sebo-detalhes-container {
+  background-color: #1f2937;
+  min-height: 100vh;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.sebo-detalhes-card {
+  background: #374151;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sebo-detalhes-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.sebo-detalhes-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  background: #6b7280;
+}
+
+.sebo-detalhes-content {
+  padding: 2rem;
+  flex: 1;
+}
+
+.sebo-detalhes-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.sebo-detalhes-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.sebo-detalhes-info-item {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sebo-detalhes-info-label {
+  font-weight: 600;
+  color: #dc2626;
+  min-width: 80px;
+}
+
+.sebo-detalhes-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.sebo-detalhes-description {
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.sebo-detalhes-proposta-section {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid #dc2626;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sebo-detalhes-proposta-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sebo-detalhes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sebo-detalhes-input {
+  background: #4b5563;
+  border: 1px solid #6b7280;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.sebo-detalhes-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.sebo-detalhes-textarea {
+  background: #4b5563;
+  border: 1px solid #6b7280;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.sebo-detalhes-textarea:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.sebo-detalhes-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+
+.sebo-detalhes-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.sebo-detalhes-propostas-list {
+  background: rgba(55, 65, 81, 0.5);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.sebo-detalhes-propostas-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.sebo-detalhes-proposta-item {
+  background: rgba(75, 85, 99, 0.3);
+  border: 1px solid #4b5563;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.2s;
+}
+
+.sebo-detalhes-proposta-item:hover {
+  background: rgba(75, 85, 99, 0.5);
+}
+
+.sebo-detalhes-proposta-user {
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 0.5rem;
+}
+
+.sebo-detalhes-proposta-desc {
+  color: #d1d5db;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.sebo-detalhes-proposta-resposta {
+  background: rgba(220, 38, 38, 0.1);
+  border-left: 3px solid #dc2626;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.sebo-detalhes-proposta-resposta-text {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.sebo-detalhes-login-prompt {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid #dc2626;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.sebo-detalhes-login-prompt h2 {
+  font-size: 1.25rem;
+  color: #dc2626;
+  margin-bottom: 0.5rem;
+}
+
+.sebo-detalhes-empty-propostas {
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Login e Cadastro Styles */
+.sebo-auth-container {
+  background-color: #1f2937;
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.sebo-auth-card {
+  background: #374151;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sebo-auth-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.sebo-auth-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.sebo-auth-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #dc2626;
+  border-radius: 2px;
+}
+
+.sebo-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sebo-auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sebo-auth-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #d1d5db;
+}
+
+.sebo-auth-input {
+  background: #4b5563;
+  border: 1px solid #6b7280;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sebo-auth-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.sebo-auth-input::placeholder {
+  color: #9ca3af;
+}
+
+.sebo-auth-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.sebo-auth-checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #dc2626;
+}
+
+.sebo-auth-checkbox-label {
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+.sebo-auth-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+}
+
+.sebo-auth-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.sebo-auth-link {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.sebo-auth-link:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+.sebo-auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #4b5563;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.sebo-auth-footer a {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.sebo-auth-footer a:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+.sebo-auth-forgot {
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+.sebo-auth-forgot a {
+  font-size: 0.875rem;
+  color: #dc2626;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sebo-auth-forgot a:hover {
+  color: #b91c1c;
+  text-decoration: underline;
+}
+
+/* Responsive Design for Detalhes */
+@media (min-width: 768px) {
+  .sebo-detalhes-card {
+    flex-direction: row;
+  }
+  
+  .sebo-detalhes-image {
+    width: 50%;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .sebo-detalhes-content {
+    width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .sebo-detalhes-container {
+    padding: 1rem;
+  }
+  
+  .sebo-detalhes-content {
+    padding: 1.5rem;
+  }
+  
+  .sebo-detalhes-title {
+    font-size: 1.5rem;
+  }
+  
+  .sebo-detalhes-info-item {
+    font-size: 1rem;
+  }
+  
+  .sebo-auth-container {
+    padding: 1rem;
+  }
+  
+  .sebo-auth-card {
+    padding: 1.5rem;
+  }
+  
+  .sebo-auth-title {
+    font-size: 1.5rem;
+  }
 }
 
 /* Propostas Styles */

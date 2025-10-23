@@ -15,7 +15,6 @@ import AdminLogin from './admin/AdminLogin.tsx'
 import CadUsuario from './CadUsuario.tsx'
 import AdminNovoAnuncio from './admin/AdminNovoAnuncio.tsx'
 import { AdminPropostas } from './admin/AdminPropostas.tsx'
-import { AdminClientes } from './admin/AdminClientes.tsx'
 
 const rotas = createBrowserRouter([
     {
@@ -27,10 +26,9 @@ const rotas = createBrowserRouter([
     element: <AdminLayout />,  // layout principal do admin com menus e outlet
     children: [
       { index: true, element: <AdminDashboard /> },          // rota /admin
-      { path: "anuncios", element: <AdminAnuncios /> },          // rota /admin/carros
-      { path: "anuncios/novo", element: <AdminNovoAnuncio /> },  // ...
-      { path: "propostas", element: <AdminPropostas /> },      // rota /admin/carros
-      { path: "admin/clientes", element: <AdminClientes /> },      // rota /admin/clientes
+      { path: "anuncios", element: <AdminAnuncios /> },          // rota /admin/anuncios
+      { path: "anuncios/novo", element: <AdminNovoAnuncio /> },  // rota /admin/anuncios/novo
+      { path: "propostas", element: <AdminPropostas /> },      // rota /admin/propostas
     ],
   },
   {

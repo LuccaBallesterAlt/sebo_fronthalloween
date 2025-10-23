@@ -12,10 +12,16 @@ export default function App() {
 
   useEffect(() => {
     async function buscaDados() {
-      const response = await fetch(`${apiUrl}/anuncios/destaques`)
-      const dados = await response.json()
-      console.log(dados)
-      setAnuncios(dados)
+      try {
+        const response = await fetch(`${apiUrl}/anuncios/destaques`)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const dados = await response.json()
+        setAnuncios(dados)
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error)
+      }
     }
     buscaDados()
 
@@ -34,9 +40,9 @@ export default function App() {
     anuncio.livro.titulo.toLowerCase().includes(filtro.toLowerCase())
   )
   
-    const listaAnuncios = anunciosFiltrados.map( anuncio => (
-      <CardLivro data={ anuncio } key={anuncio.id} />
-    ))
+  const listaAnuncios = anunciosFiltrados.map( anuncio => (
+    <CardLivro data={ anuncio } key={anuncio.id} />
+  ))
 
   return (
     <div className="sebo-main">
@@ -45,7 +51,7 @@ export default function App() {
         <div className="sebo-search">
           <input
             type="text"
-            placeholder="Digite título, autor ou gênero"
+            placeholder="Procure seu livro"
             value={filtro}
             onChange={(e) => setFiltro(e.target.value)}
           />
