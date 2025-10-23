@@ -39,24 +39,42 @@ export default function App() {
     ))
 
   return (
-    <>
-      <input
-          type="text"
-          placeholder="Busque pelo nome do livro..."
-          className="mb-4 p-2 border border-gray-300 rounded w-full"
-          value={filtro}
-          onChange={(e) => setFiltro(e.target.value)}
-      />
-      <div className="max-w-7xl mx-auto">
-        <h1 className="mb-4 mt-10 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-brown-700">
-          Livros em Destaque <span className="underline underline-offset-3 decoration-8 decoration-orange-400 dark:decoration-orange-600"></span>
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+    <div className="sebo-main">
+      {/* Header */}
+      <header className="sebo-header">
+        <div className="sebo-search">
+          <input
+            type="text"
+            placeholder="Digite título, autor ou gênero"
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+          />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="sebo-hero">
+        <div className="sebo-hero-overlay">
+          <h2>DESTAQUE DO SEBO</h2>
+          <h1>LIVROS RAROS</h1>
+          <p>Descubra edições especiais e livros raros em nosso sebo online. Encontre tesouros literários únicos!</p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="sebo-content">
+        <div className="sebo-content-header">
+          <h2>Últimas Adições</h2>
+        </div>
+        
+        <div className="sebo-grid">
           {listaAnuncios}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        </div>
       </div>
-    </>
+    </div>
   );
 }

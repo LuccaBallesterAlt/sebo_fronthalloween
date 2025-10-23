@@ -1,4 +1,3 @@
-import './MinhasPropostas.css'
 import { useEffect, useState } from "react";
 import { useUsuarioStore } from "./context/UsuarioContext";
 import type { PropostaType } from "./utils/PropostaType";
@@ -27,65 +26,66 @@ export default function Propostas() {
         return dia + "/" + mes + "/" + ano
     }
 
-    const propostasTable = propostas.map(proposta => (
-        <tr key={proposta.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <p><b>{proposta.anuncio.livro.titulo} {proposta.anuncio.livro.condicao}</b></p>
-                <p className='mt-3'>condição detalhada: {proposta.anuncio.condicao_detalhada} -
-                    R$: {Number(proposta.anuncio.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}</p>
-            </th>
-            <td className="px-6 py-4">
-                <img src={proposta.anuncio.livro.imagem_url} className="fotoCarro" alt="Foto Carro" />
-            </td>
-
-            <td className="px-6 py-4">
-                <p><b>{proposta.descricao}</b></p>
-                <p><i>Enviado em: {dataDMA(proposta.createdAt)}</i></p>
-            </td>
-            <td className="px-6 py-4">
-                {proposta.resposta ?
-                    <>
-                        <p><b>{proposta.resposta}</b></p>
-                        <p><i>Respondido em: {dataDMA(proposta.updatedAt as string)}</i></p>
-                    </>
-                    :
-                    <i>Aguardando...</i>}
-            </td>
-        </tr>
+    const propostasCards = propostas.map(proposta => (
+        <div key={proposta.id} className="sebo-proposta-card">
+            <div className="sebo-proposta-header">
+                <img src={proposta.anuncio.livro.imagem_url} alt={proposta.anuncio.livro.titulo} className="sebo-proposta-image" />
+                <div className="sebo-proposta-info">
+                    <h3 className="sebo-proposta-titulo">{proposta.anuncio.livro.titulo}</h3>
+                    <p className="sebo-proposta-preco">R$ {Number(proposta.anuncio.preco).toLocaleString("pt-br", { minimumFractionDigits: 2 })}</p>
+                    <p className="sebo-proposta-condicao">{proposta.anuncio.condicao_detalhada}</p>
+                </div>
+                <div className={`sebo-proposta-status ${proposta.resposta ? 'respondida' : 'pendente'}`}>
+                    {proposta.resposta ? 'Respondida' : 'Pendente'}
+                </div>
+            </div>
+            
+            <div className="sebo-proposta-content">
+                <div className="sebo-proposta-descricao">
+                    <h4>Minha Proposta:</h4>
+                    <p>{proposta.descricao}</p>
+                    <span className="sebo-proposta-data">Enviado em: {dataDMA(proposta.createdAt)}</span>
+                </div>
+                
+                {proposta.resposta && (
+                    <div className="sebo-proposta-resposta">
+                        <h4>Resposta do Vendedor:</h4>
+                        <p>{proposta.resposta}</p>
+                        <span className="sebo-proposta-data">Respondido em: {dataDMA(proposta.updatedAt as string)}</span>
+                    </div>
+                )}
+            </div>
+        </div>
     ))
 
     return (
-        <section className="max-w-7xl mx-auto">
-            <h1 className="mb-6 mt-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-zinc-600">
-                Listagem de <span className="underline underline-offset-3 decoration-8 decoration-orange-400 dark:decoration-orange-600">Minhas Propostas</span></h1>
+        <div className="sebo-main">
+            {/* Hero Section */}
+            <section className="sebo-hero">
+                <div className="sebo-hero-overlay">
+                    <h2>MINHAS PROPOSTAS</h2>
+                    <h1>ACOMPANHE SEUS INTERESSES</h1>
+                    <p>Acompanhe o status das suas propostas e negocie com os vendedores!</p>
+                </div>
+            </section>
 
-            {propostas.length == 0 ?
-                <h2 className="mb-4 mt-10 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl dark:text-zinc-600">
-                   &nbsp;&nbsp;Você ainda não fez propostas
-                </h2>
-                :
-                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" className="px-6 py-3">
-                                Livro
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Foto
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Proposta
-                            </th>
-                            <th scope="col" className="px-6 py-3">
-                                Resposta
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {propostasTable}
-                    </tbody>
-                </table>
-            }
-        </section>
+            {/* Main Content */}
+            <div className="sebo-content">
+                <div className="sebo-content-header">
+                    <h2>Suas Propostas</h2>
+                </div>
+                
+                {propostas.length === 0 ? (
+                    <div className="sebo-empty-state">
+                        <h3>Você ainda não fez propostas</h3>
+                        <p>Explore os livros disponíveis e faça sua primeira proposta!</p>
+                    </div>
+                ) : (
+                    <div className="sebo-propostas-grid">
+                        {propostasCards}
+                    </div>
+                )}
+            </div>
+        </div>
     )
 }
